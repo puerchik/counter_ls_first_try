@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { SetWrapper } from './components/SetWrapper';
+import { CounterWrapper } from './components/CounterWrapper';
+
+export type ContentType = 'set' | 'counter'
 
 function App() {
+
+  let a: number;
+  let b: number;
+
+  let [maxValue, setMaxValue] = useState<number>(5)
+  let [startValue, setStartValue] = useState<number>(0)
+
+  const setWrapperHandler = (min: number, max: number) => {
+    a = min;
+    b = max
+  }
+
+  const setButtonHandler = () => {
+    setStartValue(a)
+    setMaxValue(b)
+  }
+
+  console.log(startValue, maxValue);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App wrapper">
+      <SetWrapper setButton={setButtonHandler} setWrapper={(min, max) => setWrapperHandler(min, max)} maxValue={maxValue} startValue={startValue} content="set" />
+      <CounterWrapper minValue={startValue} maxValue={maxValue} />
     </div>
   );
 }
