@@ -15,15 +15,13 @@ function App() {
 
   const setWrapperHandler = (min: number, max: number) => {
     a = min;
-    b = max
+    b = max;
   }
 
   const setButtonHandler = () => {
     setStartValue(a)
     setMaxValue(b)
   }
-
-  console.log(startValue, maxValue);
 
   return (
     <div className="App wrapper">

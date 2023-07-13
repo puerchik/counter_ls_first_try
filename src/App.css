@@ -24,8 +24,6 @@ body {
   padding: 25px;
 }
 
-/* NEW */
-
 .displayWrapper,
 .SetButton__wrapper,
 .CounterBar__wrapper {
@@ -80,7 +78,7 @@ body {
   font-weight: bold;
   color: #282c34;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: rgb(178, 252, 252);
   align-self: center;
 }
 
@@ -97,35 +95,4 @@ body {
   font-size: 137px;
   font-weight: bold;
   color: rgb(178, 252, 252);
-}
-
-/* NEW */
-
-.scoreboard {
-  background-color: rgb(178, 252, 252);
-  text-align: center;
-  padding: 30px 0;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.buttons_wrapper {
-  display: flex;
-  justify-content: space-between;
-  border: 3px solid rgb(178, 252, 252);
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.false {
-  background-color: rgb(178, 252, 252);
-  cursor: pointer;
-}
-
-.true {
-  background-color: rgb(23, 92, 130);
-}
-
-.red {
-  color: red;
 }

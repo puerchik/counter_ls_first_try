@@ -24,10 +24,14 @@ export const SetWrapper: React.FC<SetWrapperType> = ({
         setWrapper(min, max)
     }
 
+    const changeValidHandler = (valid: boolean) => {
+        console.log(valid);        
+    }
+
     return (
         <div className="main-wrapper colorText" >
-            <SetDisplay setDisplay={(min, max) => setDisplayHandler(min, max)} maxValue={maxValue} startValue={startValue} />
-            <SetButtonBar setButton={()=>setButton()} />
+            <SetDisplay changeValid={(valid)=>changeValidHandler(valid)} setDisplay={(min, max) => setDisplayHandler(min, max)} maxValue={maxValue} startValue={startValue} />
+            <SetButtonBar setButton={() => setButton()} />
         </div >
     )
 }
