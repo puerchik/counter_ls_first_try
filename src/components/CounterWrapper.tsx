@@ -14,6 +14,8 @@ export const CounterWrapper: React.FC<CounterWrapperType> = ({
     maxValue
 }) => {
 
+    let [incValid, setIncValid] = useState(false)
+    let [resetValid, setResetValid] = useState(false)
     let [count, setCount] = useState(minValue)
     useEffect(() => { setCount(minValue) }, [minValue])
 
@@ -29,8 +31,13 @@ export const CounterWrapper: React.FC<CounterWrapperType> = ({
 
     return (
         <div className="main-wrapper colorText">
-            <CounterDisplay countValue={count} />
-            <CounterBar inc={incHandler} reset={resetHandler} />
+            <CounterDisplay
+                countValue={count} />
+            <CounterBar
+                disableIncValue={incValid}
+                disableResetValue={resetValid}
+                inc={incHandler}
+                reset={resetHandler} />
         </div>
     )
 }

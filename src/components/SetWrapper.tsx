@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './../App.css'
 import { ContentType } from "../App";
 import { SetDisplay } from "./SetDisplay";
@@ -20,18 +20,27 @@ export const SetWrapper: React.FC<SetWrapperType> = ({
     setButton
 }) => {
 
+    let [disableState, setDisableState] = useState(false)
+
     const setDisplayHandler = (min: number, max: number) => {
         setWrapper(min, max)
     }
 
     const changeValidHandler = (valid: boolean) => {
-        console.log(valid);        
+        setDisableState(valid)
     }
+
 
     return (
         <div className="main-wrapper colorText" >
-            <SetDisplay changeValid={(valid)=>changeValidHandler(valid)} setDisplay={(min, max) => setDisplayHandler(min, max)} maxValue={maxValue} startValue={startValue} />
-            <SetButtonBar setButton={() => setButton()} />
-        </div >
+            <SetDisplay
+                changeValid={(valid) => changeValidHandler(valid)}
+                setDisplay={(min, max) => setDisplayHandler(min, max)}
+                maxValue={maxValue}
+                startValue={startValue} />
+            <SetButtonBar
+                disableValue={disableState}
+                setButton={() => setButton()} />
+        </div>
     )
 }

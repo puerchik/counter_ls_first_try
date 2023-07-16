@@ -4,18 +4,22 @@ import './../App.css'
 type ButtonType = {
     func: 'set' | 'inc' | 'reset'
     callback: () => void
+    disableValue: boolean
 }
 
 export const Button: React.FC<ButtonType> = ({
     func,
-    callback
+    callback,
+    disableValue
 }) => {
 
     const onClickHandler = () => {
         callback()
     }
 
+    let disableStatus = disableValue
+
     return (
-        <button onClick={onClickHandler} className="button">{func}</button>
+        <button disabled={disableStatus} onClick={onClickHandler} className="button">{func}</button>
     )
 }

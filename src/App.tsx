@@ -25,8 +25,13 @@ function App() {
 
   return (
     <div className="App wrapper">
-      <SetWrapper setButton={setButtonHandler} setWrapper={(min, max) => setWrapperHandler(min, max)} maxValue={maxValue} startValue={startValue} content="set" />
-      <CounterWrapper minValue={startValue} maxValue={maxValue} />
+      <SetWrapper
+        setButton={setButtonHandler}
+        setWrapper={(min, max) => setWrapperHandler(min, max)}
+        maxValue={maxValue} startValue={startValue} content="set" />
+      <CounterWrapper
+        minValue={startValue}
+        maxValue={maxValue} />
     </div>
   );
 }

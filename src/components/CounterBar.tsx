@@ -5,16 +5,20 @@ import { Button } from "./Button";
 type CounterBarType = {
     inc: () => void
     reset: () => void
+    disableIncValue: boolean
+    disableResetValue: boolean
 }
 
 export const CounterBar: React.FC<CounterBarType> = ({
     inc,
-    reset
+    reset,
+    disableIncValue,
+    disableResetValue
 }) => {
     return (
         <div className="CounterBar__wrapper wrapper">
-            <Button callback={() => inc()} func={"inc"} />
-            <Button callback={() => reset()} func={"reset"} />
+            <Button disableValue={disableIncValue} callback={() => inc()} func={"inc"} />
+            <Button disableValue={disableResetValue} callback={() => reset()} func={"reset"} />
         </div>
     )
 }

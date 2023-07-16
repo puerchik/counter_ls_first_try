@@ -19,27 +19,26 @@ export const SetDisplay: React.FC<SetDisplayType> = ({
 
     let [min, setMin] = useState(startValue)
     let [max, setMax] = useState(maxValue)
-    let [valid, setValid] = useState(false)
 
     const setInputHandler = (value: number, labelId: string) => {
         labelId === "max" ? setMax(value) : setMin(value);
-        if (min >= 0 && max >= 0) {
-            if (min !== startValue || max !== maxValue) {
-                if (min < max) {
-                    setValid(true)
-                } else {
-                    setValid(false)
-                }
-            } else {
-                setValid(false)
-            }
-        } else {
-            setValid(false)
-        }
     }
 
-    useEffect(() => { setDisplay(min, max); changeValid(valid) }, [min, max]);
-    //useEffect(() => {  }, [min, max]);
+    if (min >= 0 && max >= 0) {
+        if (min !== startValue || max !== maxValue) {
+            if (min < max) {
+                changeValid(true)
+            } else {
+                changeValid(false)
+            }
+        } else {
+            changeValid(false)
+        }
+    } else {
+        changeValid(false)
+    }
+
+    useEffect(() => { setDisplay(min, max) }, [min, max]);
 
     console.log(min, max);
 

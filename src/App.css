@@ -86,6 +86,11 @@ body {
   cursor: pointer;
 }
 
+.button[disabled] {
+  cursor: default;
+  background-color: rgb(78, 83, 92)
+}
+
 .scoreboard__wrapper {
    display: flex;
    justify-content: center;

@@ -4,15 +4,20 @@ import { Button } from "./Button";
 
 type SetButtonBarType = {
     setButton: () => void
+    disableValue: boolean
 }
 
 export const SetButtonBar: React.FC<SetButtonBarType> = ({
-    setButton
+    setButton,
+    disableValue
 }) => {
+
+    console.log(disableValue);
+    
 
     return (
         <div className="SetButton__wrapper">
-            <Button callback={()=>setButton()} func={'set'} />
+            <Button disableValue={!disableValue} callback={() => setButton()} func={'set'} />
         </div>
     )
 }
